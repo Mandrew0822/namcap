@@ -4,12 +4,12 @@
 #include <unistd.h>
 
 // Define the repository URL
-#define REPOSITORY_URL "http://example.com/repo/"
+#define REPOSITORY_URL "https://github.com/Mandrew0822/namcap"
 
 void update_repository() {
   // Download the latest repository list from the remote repository
   char update_command[100];
-  sprintf(update_command, "wget %srepo.list -O /tmp/repo.list", REPOSITORY_URL);
+  sprintf(update_command, "wget %srepo.list -O /tmp/packages.txt", REPOSITORY_URL);
   system(update_command);
 }
 
@@ -34,7 +34,7 @@ void install_package(char *package_name) {
 
   // Install the package
   char install_command[100];
-  sprintf(install_command, "chmod +x /tmp/%s; cp /tmp/%s /usr/local/bin/%s", package_name, package_name, package_name);
+  sprintf(install_command, "sudo chmod +x /tmp/%s; cp /tmp/%s /usr/local/bin/%s", package_name, package_name, package_name);
   system(install_command);
 }
 
